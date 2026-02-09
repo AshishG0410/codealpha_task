@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-screen" class="screen">
+        <div class="auth-card">
+            <h1>SocialSphere</h1>
+            
+            <div id="login-form">
+                <input type="text" id="login-username" placeholder="Username">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="login()" class="primary-btn">Log In</button>
+                <p class="switch-text">New here? <span onclick="showRegister()">Create account</span></p>
+            </div>
+
+            <div id="register-form" class="hidden">
+                <div class="avatar-upload" onclick="document.getElementById('reg-avatar').click()">
+                    <img id="avatar-preview" src="https://via.placeholder.com/100" alt="Avatar">
+                    <span class="edit-icon"><span class="material-icons-round">edit</span></span>
+                </div>
+                <input type="file" id="reg-avatar" hidden onchange="previewAvatar(this)">
+                
+                <input type="text" id="reg-username" placeholder="Choose Username">
+                <input type="password" id="reg-password" placeholder="Choose Password">
+                <input type="text" id="reg-bio" placeholder="Short Bio">
+                <button onclick="register()" class="primary-btn">Sign Up</button>
+                <p class="switch-text">Have an account? <span onclick="showLogin()">Log in</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-screen" class="screen hidden">
+        <nav>
+            <div class="nav-content">
+                <h2>SocialSphere</h2>
+                <div class="user-menu">
+                    <span id="nav-username"></span>
+                    <img id="nav-avatar" src="" alt="">
+                    <button onclick="logout()" class="icon-btn"><span class="material-icons-round">logout</span></button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="create-post-card">
+                <textarea id="post-text" placeholder="What's on your mind?"></textarea>
+                <div class="post-tools">
+                    <label for="post-image" class="image-upload-btn">
+                        <span class="material-icons-round">image</span> Add Photo
+                    </label>
+                    <input type="file" id="post-image" hidden>
+                    <button onclick="createPost()" class="primary-btn">Post</button>
+                </div>
+            </div>
+
+            <div id="feed"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
